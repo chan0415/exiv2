@@ -27,16 +27,17 @@ fi
 mkdir build && cd build
 conan install .. --build missing --profile release
 
-cmake ${CMAKE_OPTIONS} -DEXIV2_TEAM_WARNINGS_AS_ERRORS=ON -DCMAKE_INSTALL_PREFIX=install ..
-make -j2
+cmake ${CMAKE_OPTIONS} -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DEXIV2_TEAM_WARNINGS_AS_ERRORS=ON -DCMAKE_INSTALL_PREFIX=install ..
+infer run --compilation-database build/compile_commands.json
+#make -j2
 
-make tests
-make install
-pushd .
-cd bin
-$EXIV2_VALGRIND ./unit_tests
-popd
+#make tests
+#make install
+#pushd .
+#cd bin
+#$EXIV2_VALGRIND ./unit_tests
+#popd
 
-if [ -n "$COVERAGE" ]; then
-    bash <(curl -s https://codecov.io/bash)
-fi
+#if [ -n "$COVERAGE" ]; then
+#    bash <(curl -s https://codecov.io/bash)
+#fi
