@@ -27,9 +27,10 @@ fi
 mkdir build && cd build
 conan install .. --build missing --profile release
 
-infer compile -- cmake ${CMAKE_OPTIONS} -DEXIV2_TEAM_WARNINGS_AS_ERRORS=ON -DCMAKE_INSTALL_PREFIX=install ..
-#infer run --compilation-database build/compile_commands.json
-infer run -- make -j2
+cmake ${CMAKE_OPTIONS} -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DEXIV2_TEAM_WARNINGS_AS_ERRORS=ON -DCMAKE_INSTALL_PREFIX=install ..
+cd ..
+infer run --compilation-database build/compile_commands.json
+#infer run -- make -j2
 
 #make tests
 #make install
