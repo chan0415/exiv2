@@ -14,11 +14,11 @@ language: cpp
 
 matrix:
   include:
-    - os: linux
-      dist: trusty
-      sudo: required
-      compiler: gcc
-      env: COVERAGE=1 CMAKE_OPTIONS="-DCMAKE_BUILD_TYPE=Release -DEXIV2_ENABLE_VIDEO=ON -DEXIV2_ENABLE_WEBREADY=ON -DEXIV2_BUILD_UNIT_TESTS=ON -DBUILD_WITH_COVERAGE=ON" # All enabled + Coverage
+    #- os: linux
+    #  dist: trusty
+    #  sudo: required
+    #  compiler: gcc
+    #  env: COVERAGE=1 CMAKE_OPTIONS="-DCMAKE_BUILD_TYPE=Release -DEXIV2_ENABLE_VIDEO=ON -DEXIV2_ENABLE_WEBREADY=ON -DEXIV2_BUILD_UNIT_TESTS=ON -DBUILD_WITH_COVERAGE=ON" # All enabled + Coverage
 
     #- os: linux
     #  dist: trusty
@@ -28,10 +28,10 @@ matrix:
     #    - WITH_VALGRIND=1
     #   - CMAKE_OPTIONS="-DCMAKE_BUILD_TYPE=Release -DEXIV2_ENABLE_VIDEO=ON -DEXIV2_ENABLE_WEBREADY=ON -DEXIV2_BUILD_UNIT_TESTS=ON"
 
-    #- os: linux
-    #  dist: trusty
-    #  sudo: required
-    #  compiler: clang
+    - os: linux
+      dist: trusty
+      sudo: required
+      compiler: clang
 
     #- os: osx
     #  osx_image: xcode9
